@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Parallax vertical</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/shadow.css">
+
+
+    <style>
+        #div1 {
+            background-image: url("https://res.cloudinary.com/dxfjh5t3p/image/upload/v1641289974/chihiro008_yx220n.jpg");
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        #div2 {
+            background-image: url("https://res.cloudinary.com/dxfjh5t3p/image/upload/v1641290683/chihiro025_zcep1m.jpg");
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+    <script   src="https://code.jquery.com/jquery-3.4.1.min.js"   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="   crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+    <div style="background-color:black;height:100vh;">
+    </div>
+    <div id="div1" class="innershadow1" style="background-color:black;height:200vh;position:relative;">
+        <img id="naruto1" data-top=10 data-top2=60 data-left=30 data-left2=20  data-width=15 data-width2=60 src="https://res.cloudinary.com/dxfjh5t3p/image/upload/v1641310939/as7-tool_%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F_1_vqnkf8.png" class="dropshadow1" style="position:absolute;width:10%;top:15%;left:40%;filter:grayscale(.3) blur(0px);">
+        <img id="sasuke1" data-top=20 data-top2=80 data-left=50   data-left2=40 data-width=30 data-width2=40 src="https://res.cloudinary.com/dxfjh5t3p/image/upload/v1641291170/as7-tool-02_h781nq.png" class="dropshadow1" style="position:absolute;width:30%;top:20%;left:50%;">
+    </div>
+
+    <div style="background-color:rgba(243, 222, 164, 0.87);height:100vh"></div>
+
+    <div id="div2" class="container-fluid" style="background-color:black;height:100vh;"></div>
+    <!-- <div class="container-fluid" style="background-color:darkgrey;min-height: 1800px"></div> -->
+
+
+    <script>
+        $(document).ready(function() {
+            var div1_pos = $("#div1").offset().top;
+            var div1_end = div1_pos + $("#div1").height();
+            var winh = $(window).height();
+            $(window).scroll(function() {
+                var scrolled = $(window).scrollTop();
+                var div1_scrolled = scrolled - div1_pos;
+                var div1h = $("#div1").height();
+                if (div1_scrolled > 0 && scrolled < div1_end - winh) {
+                    $("#naruto1").css('left', (($("#naruto1").data('left2')-$("#naruto1").data('left'))*div1_scrolled/winh + $("#naruto1").data('left')) + '%');
+                    $("#naruto1").css('top', (($("#naruto1").data('top2')-$("#naruto1").data('top'))*div1_scrolled/winh + $("#naruto1").data('top')) + '%');
+                    $("#naruto1").css('width', (($("#naruto1").data('width2')-$("#naruto1").data('width'))*div1_scrolled/winh + $("#naruto1").data('width')) + '%');
+                    
+                    $("#sasuke1").css('left', (($("#sasuke1").data('left2')-$("#sasuke1").data('left'))*div1_scrolled/winh + $("#sasuke1").data('left')) + '%');
+                    $("#sasuke1").css('top', (($("#sasuke1").data('top2')-$("#sasuke1").data('top'))*div1_scrolled/winh + $("#sasuke1").data('top')) + '%');
+                    $("#sasuke1").css('width', (($("#sasuke1").data('width2')-$("#sasuke1").data('width'))*div1_scrolled/winh + $("#sasuke1").data('width')) + '%');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
+
+<!-- <!doctype html>
+<html lang="en">
+
+<head>
+    <title>Parallax vertical</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/shadow.css">
+
+
+    <style>
+        #div1 {
+            background-image: url("https://res.cloudinary.com/dxfjh5t3p/image/upload/v1641289974/chihiro008_yx220n.jpg");
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+    <script   src="https://code.jquery.com/jquery-3.4.1.min.js"   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="   crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+    <div style="background-color:dodgerblue;height:100vh;">
+    </div>
+    <div id="div1" class="innershadow1" style="background-color:black;height:200vh;position:relative;">
+        <img id="1" data-top=15 data-top2=70 data-left=40 data-left2=35  data-width=15 data-width2=30 src="https://res.cloudinary.com/dxfjh5t3p/image/upload/v1641291170/as7-tool_%E5%B7%A5%E4%BD%9C%E5%8D%80%E5%9F%9F_1_sgj05a.png" class="dropshadow1" style="position:absolute;width:20%;top:15%;left:40%;filter:grayscale(.3) blur(0px);">
+        <img id="2" data-top=20 data-top2=80 data-left=50   data-left2=40 data-width=30 data-width2=40 src="https://res.cloudinary.com/dxfjh5t3p/image/upload/v1641291170/as7-tool-02_h781nq.png" class="dropshadow1" style="position:absolute;width:30%;top:20%;left:50%;">
+    </div>
+    <div style="background-color:grey;height:100vh"></div>
+
+
+
+    <script>
+        $(document).ready(function() {
+            var div1_pos = $("#div1").offset().top;
+            var div1_end = div1_pos + $("#div1").height();
+            var winh = $(window).height();
+            $(window).scroll(function() {
+                var scrolled = $(window).scrollTop();
+                var div1_scrolled = scrolled - div1_pos;
+                var div1h = $("#div1").height();
+                if (div1_scrolled > 0 && scrolled < div1_end - winh) {
+                    $("#naruto1").css('left', (($("#naruto1").data('left2')-$("#naruto1").data('left'))*div1_scrolled/winh + $("#naruto1").data('left')) + '%');
+                    $("#naruto1").css('top', (($("#naruto1").data('top2')-$("#naruto1").data('top'))*div1_scrolled/winh + $("#naruto1").data('top')) + '%');
+                    $("#naruto1").css('width', (($("#naruto1").data('width2')-$("#naruto1").data('width'))*div1_scrolled/winh + $("#naruto1").data('width')) + '%');
+                    
+                    $("#sasuke1").css('left', (($("#sasuke1").data('left2')-$("#sasuke1").data('left'))*div1_scrolled/winh + $("#sasuke1").data('left')) + '%');
+                    $("#sasuke1").css('top', (($("#sasuke1").data('top2')-$("#sasuke1").data('top'))*div1_scrolled/winh + $("#sasuke1").data('top')) + '%');
+                    $("#sasuke1").css('width', (($("#sasuke1").data('width2')-$("#sasuke1").data('width'))*div1_scrolled/winh + $("#sasuke1").data('width')) + '%');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html> -->
